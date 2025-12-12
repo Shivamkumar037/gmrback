@@ -18,6 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+    @CrossOrigin(origins = "*")
 public class AuthController {
 
     private final UserRepository userRepository;
@@ -71,4 +72,5 @@ public class AuthController {
 
         return ResponseEntity.ok(new AuthResponse(jwtToken, user.getFullName(), user.getWalletBalance()));
     }
+
 }

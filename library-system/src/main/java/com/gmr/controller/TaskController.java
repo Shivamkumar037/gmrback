@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @RestController
 @RequestMapping("/api/task")
 @RequiredArgsConstructor
-    @CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 public class TaskController {
 
     private final UserRepository userRepository;
@@ -26,9 +26,9 @@ public class TaskController {
 
     @PostMapping("/verify")
     @Transactional // Ensures atomicity: Money is only added if log is saved
-    public ResponseEntity<?> verifyTask(@RequestBody TaskVerifyRequest request, 
+    public ResponseEntity<?> verifyTask(@RequestBody TaskVerifyRequest request,
                                         @AuthenticationPrincipal UserDetails userDetails) {
-        
+
         // 1. Fetch User
         User user = userRepository.findByEmail(userDetails.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -66,3 +66,4 @@ public class TaskController {
     }
 
 }
+

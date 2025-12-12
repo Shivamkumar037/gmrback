@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/wallet")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class WalletController {
 
     private final UserRepository userRepository;
@@ -71,4 +72,5 @@ public class WalletController {
         
         return ResponseEntity.ok(transactionRepository.findByUserIdOrderByTimestampDesc(user.getId()));
     }
+
 }

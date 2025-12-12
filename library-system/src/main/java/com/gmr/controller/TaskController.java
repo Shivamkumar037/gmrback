@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @RestController
 @RequestMapping("/api/task")
 @RequiredArgsConstructor
+    @CrossOrigin(origins = "*")
 public class TaskController {
 
     private final UserRepository userRepository;
@@ -63,4 +64,5 @@ public class TaskController {
 
         return ResponseEntity.ok("Task verified. Amount credited: " + request.getAmount());
     }
+
 }
